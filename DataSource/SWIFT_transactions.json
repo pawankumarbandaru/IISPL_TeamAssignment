@@ -1,0 +1,50 @@
+[
+  {
+    "sourceRef"      : "SWIFT-20240301-001",
+    "txnType"        : "CREDIT",
+    "amount"         : "150000.00",
+    "currency"       : "USD",
+    "valueDate"      : "2024-03-01",
+    "accountNumber"  : "ACC-9001",
+    "customerId"     : "CUST-301",
+    "fromBic"        : "DEUTDEDB",
+    "toBic"          : "HDFCINBB",
+    "correspondentBic": "CITIUS33"
+  },
+  {
+    "sourceRef"      : "SWIFT-20240301-002",
+    "txnType"        : "DEBIT",
+    "amount"         : "87500.00",
+    "currency"       : "EUR",
+    "valueDate"      : "2024-03-01",
+    "accountNumber"  : "ACC-9002",
+    "customerId"     : "CUST-302",
+    "fromBic"        : "HDFCINBB",
+    "toBic"          : "BNPAFRPP",
+    "correspondentBic": "MIDLGB22"
+  },
+  {
+    "sourceRef"      : "SWIFT-20240302-003",
+    "txnType"        : "CREDIT",
+    "amount"         : "320000.00",
+    "currency"       : "GBP",
+    "valueDate"      : "2024-03-02",
+    "accountNumber"  : "ACC-9003",
+    "customerId"     : "CUST-303",
+    "fromBic"        : "BARCGB22",
+    "toBic"          : "ICICINBB",
+    "correspondentBic": "CHASUS33"
+  },
+  {
+    "sourceRef"      : "SWIFT-20240303-004",
+    "txnType"        : "REVERSAL",
+    "amount"         : "45000.00",
+    "currency"       : "USD",
+    "valueDate"      : "2024-03-03",
+    "accountNumber"  : "ACC-9004",
+    "customerId"     : "CUST-304",
+    "fromBic"        : "CITIUS33",
+    "toBic"          : "SBININBB",
+    "correspondentBic": ""
+  }
+]

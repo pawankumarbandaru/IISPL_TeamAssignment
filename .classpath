@@ -7,6 +7,6 @@
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="lib"/>
-	<classpathentry kind="lib" path="/home/iispl/Downloads/postgresql-42.7.10.jar"/>
+	<classpathentry excluding="src/|lib/" kind="src" path=""/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

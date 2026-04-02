@@ -1,0 +1,58 @@
+[
+  {
+    "sourceRef"    : "FIN-2024-0301-001",
+    "partnerTxnId" : "RZP-PAY-123456",
+    "partnerName"  : "RAZORPAY",
+    "txnType"      : "CREDIT",
+    "amount"       : "4999.00",
+    "feeAmount"    : "49.99",
+    "currency"     : "INR",
+    "valueDate"    : "2024-03-01",
+    "accountNumber": "ACC-5001",
+    "customerId"   : "CUST-501",
+    "toBankIfsc"   : "ICIC0001234",
+    "paymentMode"  : "UPI"
+  },
+  {
+    "sourceRef"    : "FIN-2024-0301-002",
+    "partnerTxnId" : "PPAY-TXN-987654",
+    "partnerName"  : "PHONEPE",
+    "txnType"      : "CREDIT",
+    "amount"       : "12000.00",
+    "feeAmount"    : "120.00",
+    "currency"     : "INR",
+    "valueDate"    : "2024-03-01",
+    "accountNumber": "ACC-5002",
+    "customerId"   : "CUST-502",
+    "toBankIfsc"   : "HDFC0000456",
+    "paymentMode"  : "NETBANKING"
+  },
+  {
+    "sourceRef"    : "FIN-2024-0302-003",
+    "partnerTxnId" : "PAYTM-88771122",
+    "partnerName"  : "PAYTM",
+    "txnType"      : "DEBIT",
+    "amount"       : "599.00",
+    "feeAmount"    : "5.99",
+    "currency"     : "INR",
+    "valueDate"    : "2024-03-02",
+    "accountNumber": "ACC-5003",
+    "customerId"   : "CUST-503",
+    "toBankIfsc"   : "SBIN0005678",
+    "paymentMode"  : "WALLET"
+  },
+  {
+    "sourceRef"    : "FIN-2024-0303-004",
+    "partnerTxnId" : "STRIPE-CH-ABCD1234",
+    "partnerName"  : "STRIPE",
+    "txnType"      : "CREDIT",
+    "amount"       : "25000.00",
+    "feeAmount"    : "725.00",
+    "currency"     : "INR",
+    "valueDate"    : "2024-03-03",
+    "accountNumber": "ACC-5004",
+    "customerId"   : "CUST-504",
+    "toBankIfsc"   : "KKBK0000999",
+    "paymentMode"  : "CARD"
+  }
+]
