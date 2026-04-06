@@ -5,5 +5,5 @@ import com.iispl.entity.Transaction;
 
 public interface TransactionService {
 
-    Transaction process(IncomingTransaction incoming);
+  
 }
