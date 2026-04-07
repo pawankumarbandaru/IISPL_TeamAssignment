@@ -5,15 +5,22 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import com.iispl.enums.TransactionStatus;
+import com.iispl.enums.TransactionType;
 
-public class DebitTransaction extends Transaction {
+public class DebitTransaction extends IncomingTransaction {
 
-    public DebitTransaction(Long txnId, Long debitAccountId,
-                    BigDecimal amount, String currency,
-                    LocalDateTime txnDate, LocalDate valueDate,
-                    TransactionStatus status, String referenceNumber) {
+    public DebitTransaction(Long incomingTxnId, String sourceSystem, String sourceRef,
+                            BigDecimal transactionAmount,
+                            String accountNumber, Long customerId,
+                            String fromBank, String channel,
+                            LocalDate valueDate, TransactionStatus status,
+                            LocalDateTime ingestTimestamp, String normalizedPayload) {
 
-        super(txnId, debitAccountId, null, amount, currency,
-              txnDate, valueDate, status, referenceNumber);
+        super(incomingTxnId, sourceSystem, sourceRef,
+              TransactionType.DEBIT, transactionAmount,
+              accountNumber, customerId,
+              fromBank, null, channel,
+              valueDate, status,
+              ingestTimestamp, normalizedPayload);
     }
 }
