@@ -1,6 +1,11 @@
 package com.iispl.service;
 
-public interface TransactionService {
+import com.iispl.entity.Transaction;
+import java.util.concurrent.BlockingQueue;
 
-  
+
+public interface TransactionService {
+    void                       receive(Transaction txn);
+    BlockingQueue<Transaction> getQueue();
+    int                        getPendingCount();
 }
