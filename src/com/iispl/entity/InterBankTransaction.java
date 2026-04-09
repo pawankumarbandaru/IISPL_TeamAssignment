@@ -1,39 +1,29 @@
 package com.iispl.entity;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
+import com.iispl.enums.BankName;
 import com.iispl.enums.TransactionStatus;
 import com.iispl.enums.TransactionType;
 
-public class InterBankTransaction extends IncomingTransaction {
+public class InterBankTransaction extends Transaction {
 
     private final String correspondent;
 
-    public InterBankTransaction(Long incomingTxnId, String sourceSystem, String sourceRef,
-                                BigDecimal transactionAmount,
-                                String accountNumber, Long customerId,
-                                String fromBank, String toBank,
-                                String channel,
-                                LocalDate valueDate, TransactionStatus status,
-                                LocalDateTime ingestTimestamp, String normalizedPayload,
-                                String correspondent) {
-
-        super(incomingTxnId, sourceSystem, sourceRef,
-              TransactionType.INTERBANK, transactionAmount,
-              accountNumber, customerId,
-              fromBank, toBank, channel,
-              valueDate, status,
-              ingestTimestamp, normalizedPayload);
-
+    public InterBankTransaction(UUID txnId, BigDecimal amount, 
+            TransactionType txnType, TransactionStatus txnStatus, 
+            BankName fromBank, BankName toBank, String channel, 
+            LocalDateTime txnDateTime, LocalDateTime valueDateTime,
+            String correspondent) 
+    {
+        super(txnId, amount, txnType, txnStatus, fromBank, 
+              toBank, channel, txnDateTime, valueDateTime);
         this.correspondent = correspondent;
     }
 
-    @Override
-    public String toString() {
-        return super.toString().replace("}", "") +
-                ",\n  correspondent='" + correspondent + '\'' +
-                "\n}";
+    public String getCorrespondent() {
+        return correspondent;
     }
 }

@@ -1,17 +1,18 @@
 package com.iispl.entity;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 import com.iispl.enums.TransactionStatus;
 import com.iispl.enums.TransactionType;
 
 public class IncomingTransaction {
 
-    private Long incomingTxnId;
+    private UUID incomingTxnId;
     private String sourceSystem;
     private String sourceRef;
+    private String rawPayload;
     private TransactionType txnType;
     private BigDecimal transactionAmount;
     protected String accountNumber;
@@ -19,25 +20,29 @@ public class IncomingTransaction {
     protected String fromBank;
     protected String toBank;
     protected String channel;
-    private LocalDate valueDate;
+    private LocalDateTime valueDateTime;
     private TransactionStatus status;
-    private LocalDateTime ingestTimestamp;
+    private LocalDateTime txnDateTime;
     private String normalizedPayload;
-
-    //  Default constructor
-    public IncomingTransaction() {}
+    // Only for InterBank
+    private String correspondent;
+    
+    // Only for Reversal
+    private String originalRef;
 
     // constructor
-    public IncomingTransaction(Long incomingTxnId, String sourceSystem, String sourceRef,
-                               TransactionType txnType, BigDecimal transactionAmount,
+    public IncomingTransaction(UUID incomingTxnId, String sourceSystem, String sourceRef,
+                               String rawPayload,TransactionType txnType, 
+                               BigDecimal transactionAmount,
                                String accountNumber, Long customerId,
                                String fromBank, String toBank, String channel,
-                               LocalDate valueDate, TransactionStatus status,
-                               LocalDateTime ingestTimestamp, String normalizedPayload) {
+                               LocalDateTime valueDateTime, TransactionStatus status,
+                               LocalDateTime txnDateTime, String normalizedPayload) {
 
         this.incomingTxnId = incomingTxnId;
         this.sourceSystem = sourceSystem;
         this.sourceRef = sourceRef;
+        this.rawPayload = rawPayload;
         this.txnType = txnType;
         this.transactionAmount = transactionAmount;
         this.accountNumber = accountNumber;
@@ -45,85 +50,146 @@ public class IncomingTransaction {
         this.fromBank = fromBank;
         this.toBank = toBank;
         this.channel = channel;
-        this.valueDate = valueDate;
+        this.valueDateTime = valueDateTime;
         this.status = status;
-        this.ingestTimestamp = ingestTimestamp;
+        this.txnDateTime = txnDateTime;
         this.normalizedPayload = normalizedPayload;
     }
-
     
-    public Long getIncomingTxnId() {
+    public UUID getIncomingTxnId() {
 		return incomingTxnId;
+	}
+
+	public void setIncomingTxnId(UUID incomingTxnId) {
+		this.incomingTxnId = incomingTxnId;
 	}
 
 	public String getSourceSystem() {
 		return sourceSystem;
 	}
 
+	public void setSourceSystem(String sourceSystem) {
+		this.sourceSystem = sourceSystem;
+	}
+
+	public String getSourceRef() {
+		return sourceRef;
+	}
+
+	public void setSourceRef(String sourceRef) {
+		this.sourceRef = sourceRef;
+	}
+
+	public String getRawPayload() {
+		return rawPayload;
+	}
+
+	public void setRawPayload(String rawPayload) {
+		this.rawPayload = rawPayload;
+	}
+
 	public TransactionType getTxnType() {
 		return txnType;
 	}
 
-	public BigDecimal getAmount() {
+	public void setTxnType(TransactionType txnType) {
+		this.txnType = txnType;
+	}
+
+	public BigDecimal getTransactionAmount() {
 		return transactionAmount;
 	}
+
+	public void setTransactionAmount(BigDecimal transactionAmount) {
+		this.transactionAmount = transactionAmount;
+	}
+
 	public String getAccountNumber() {
 		return accountNumber;
+	}
+
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
 	}
 
 	public Long getCustomerId() {
 		return customerId;
 	}
 
+	public void setCustomerId(Long customerId) {
+		this.customerId = customerId;
+	}
+
 	public String getFromBank() {
 		return fromBank;
+	}
+
+	public void setFromBank(String fromBank) {
+		this.fromBank = fromBank;
 	}
 
 	public String getToBank() {
 		return toBank;
 	}
 
+	public void setToBank(String toBank) {
+		this.toBank = toBank;
+	}
+
 	public String getChannel() {
 		return channel;
 	}
-	
-	public LocalDate getValueDate() {
-		return valueDate;
+
+	public void setChannel(String channel) {
+		this.channel = channel;
+	}
+
+	public LocalDateTime getValueDateTime() {
+		return valueDateTime;
+	}
+
+	public void setValueDateTime(LocalDateTime valueDateTime) {
+		this.valueDateTime = valueDateTime;
 	}
 
 	public TransactionStatus getStatus() {
 		return status;
 	}
 
-	public LocalDateTime getIngestTimestamp() {
-		return ingestTimestamp;
+	public void setStatus(TransactionStatus status) {
+		this.status = status;
+	}
+
+	public LocalDateTime getTxnDateTime() {
+		return txnDateTime;
+	}
+
+	public void setTxnDateTime(LocalDateTime txnDateTime) {
+		this.txnDateTime = txnDateTime;
 	}
 
 	public String getNormalizedPayload() {
 		return normalizedPayload;
 	}
 
-	public String getSourceRef() {
-        return sourceRef;
-    }
+	public void setNormalizedPayload(String normalizedPayload) {
+		this.normalizedPayload = normalizedPayload;
+	}
 
-    @Override
-    public String toString() {
-        return "IncomingTransaction {" +
-                "\n  incomingTxnId=" + incomingTxnId +
-                ",\n  sourceSystem='" + sourceSystem + '\'' +
-                ",\n  sourceRef='" + sourceRef + '\'' +
-                ",\n  txnType=" + txnType +
-                ",\n  amount=" + amount +
-                ",\n  accountNumber='" + accountNumber + '\'' +
-                ",\n  customerId=" + customerId +
-                ",\n  fromBank='" + fromBank + '\'' +
-                ",\n  toBank='" + toBank + '\'' +
-                ",\n  channel='" + channel + '\'' +
-                ",\n  valueDate=" + valueDate +
-                ",\n  status=" + status +
-                ",\n  ingestTimestamp=" + ingestTimestamp +
-                ",\n  normalizedPayload='" + normalizedPayload + '\'' +
-                "\n}";
-    }
+	public String getCorrespondent() {
+		return correspondent;
+	}
+
+	public void setCorrespondent(String correspondent) {
+		this.correspondent = correspondent;
+	}
+
+	public String getOriginalRef() {
+		return originalRef;
+	}
+
+	public void setOriginalRef(String originalRef) {
+		this.originalRef = originalRef;
+	}
+
 }
